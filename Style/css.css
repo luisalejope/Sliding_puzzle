@@ -1,5 +1,5 @@
 BODY { 
-    background: #AAAAAA;
+    background: #6400FF;
     }
     
     .tile1, .tile2, .tile3, .tile4, .tile5, .tile6, .tile7, .tile8, .tile9 {
@@ -7,7 +7,7 @@ BODY {
       width: 227px;
       height: 170px;
       border: 1px solid white;
-      background: url(images/cristiano_ronaldo_en_el_momento_de_realizar_su_polemico_gesto_.jpg); 
+      background: url(images/img_agomezo_20200326-110529_imagenes_md_otras_fuentes_gettyimages-1205035438-kT0F-U48336284567QyD-980x554@MundoDeportivo-Web.jpg); 
       cursor: pointer;
     }
     
@@ -20,3 +20,28 @@ BODY {
     .tile7 {background-position: left bottom;}
     .tile8 {background-position: center bottom;}
     .tile9 {background: white; cursor: default;}
+
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+    
+    .button1 {
+      background-color: white; 
+      color: black; 
+      border: 2px solid #4CAF50;
+    }
+    
+    .button1:hover {
+      background-color: #4CAF50;
+      color: white;
+    }

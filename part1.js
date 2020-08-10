@@ -1,55 +1,67 @@
-function swapTiles(cell1,cell2) {
-    var temp = document.getElementById(cell1).className;
-    document.getElementById(cell1).className = document.getElementById(cell2).className;
-    document.getElementById(cell2).className = temp;
-  }
-  
-  function shuffle() {
-  //Use nested loops to access each cell of the 3x3 grid
-  for (var row=1;row<=3;row++) { //For each row of the 3x3 grid
-     for (var column=1;column<=3;column++) { //For each column in this row
-    
-      var row2=Math.floor(Math.random()*3 + 1); //Pick a random row from 1 to 3
-      var column2=Math.floor(Math.random()*3 + 1); //Pick a random column from 1 to 3
-       
-      swapTiles("cell"+row+column,"cell"+row2+column2); //Swap the look & feel of both cells
-    } 
-  } 
-  }
-  
-  function clickTile(row,column) {
-    var cell = document.getElementById("cell"+row+column);
-    var tile = cell.className;
-    if (tile!="tile9") { 
-         //Checking if white tile on the right
-         if (column<3) {
-           if ( document.getElementById("cell"+row+(column+1)).className=="tile9") {
-             swapTiles("cell"+row+column,"cell"+row+(column+1));
-             return;
-           }
-         }
-         //Checking if white tile on the left
-         if (column>1) {
-           if ( document.getElementById("cell"+row+(column-1)).className=="tile9") {
-             swapTiles("cell"+row+column,"cell"+row+(column-1));
-             return;
-           }
-         }
-           //Checking if white tile is above
-         if (row>1) {
-           if ( document.getElementById("cell"+(row-1)+column).className=="tile9") {
-             swapTiles("cell"+row+column,"cell"+(row-1)+column);
-             return;
-           }
-         }
-         //Checking if white tile is below
-         if (row<3) {
-           if ( document.getElementById("cell"+(row+1)+column).className=="tile9") {
-             swapTiles("cell"+row+column,"cell"+(row+1)+column);
-             return;
-           }
-         } 
+function random(a1, a2) {
+  let z = document.getElementById(a1).className;
+  document.getElementById(a1).className = document.getElementById(a2).className;
+  document.getElementById(a2).className = z;
+}
+
+function Onclick(fila, columna) {
+  let a = document.getElementById("a" + fila + columna);
+  let posicion = a.className;
+  if (posicion != "posicion9") {
+
+    if (columna < 3) {
+      if (document.getElementById("a" + fila + (columna + 1)).className == "posicion9") {
+        random("a" + fila + columna, "a" + fila + (columna + 1));
+        return;
+      }
     }
-    
+
+    if (columna > 1) {
+      if (document.getElementById("a" + fila + (columna - 1)).className == "posicion9") {
+        random("a" + fila + columna, "a" + fila + (columna - 1));
+        return;
+      }
+    }
+
+    if (fila > 1) {
+      if (document.getElementById("a" + (fila - 1) + columna).className == "posicion9") {
+        random("a" + fila + columna, "a" + (fila - 1) + columna);
+        return;
+      }
+    }
+
+    if (fila < 3) {
+      if (document.getElementById("a" + (fila + 1) + columna).className == "posicion9") {
+        random("a" + fila + columna, "a" + (fila + 1) + columna);
+        return;
+      }
+    }
   }
-  
+
+}
+
+
+function retry() {
+  this.contador();
+  for (let i = 1; i <= 3; i++) {
+    for (let z = 1; z <= 3; z++) {
+
+      let i2 = Math.floor(Math.random() * 3 + 1);
+      let z2 = Math.floor(Math.random() * 3 + 1);
+
+      random("a" + i + z, "a" + i2 + z2);
+    }
+  }
+}
+
+
+function contador() {
+  let n = 0;
+  let l = document.getElementById("contar");
+  window.setInterval(function () {
+    l.innerHTML = n;
+    n++;
+  }, 1000);
+
+}
+

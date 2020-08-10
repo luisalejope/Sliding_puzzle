@@ -63,7 +63,7 @@ BODY {
   background-position: center bottom;
 }
 .posicion9 {
-  background: white;
+  background-image: linear-gradient(#7B9F35, #226666);
   cursor: default;
 }
 
